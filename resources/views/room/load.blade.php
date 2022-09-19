@@ -16,17 +16,17 @@
           <tr>
             <td>{{ $loop->iteration }}</td>
             <td class="text-center">
-              @if(isset($room->photo)) <img src="{{ asset($room->photo) }}" style="object-fit: cover;" height="125" alt="Photo {{ $room->name }}"> @else - @endif
+              @if(isset($room->photo)) <img src="{{ asset($room->photo) }}" style="object-fit: cover;" height="125" alt="Photo Ruangan {{ $room->name }}"> @else - @endif
             </td>
             <td>
               <div class="text-primary me-3">
                 {{ $room->name }}
               </div> 
             </td>
-            <td>{{ $room->description }}</td>
+            <td class="text-wrap">{{ $room->description }}</td>
             <td> {{ $room->capacity }} </td>
             <td><span class="badge bg-label-primary me-1">{{ $room->status }}</span></td>
-            <td>
+            <td class="text-end">
               <div class="dropdown">
                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                   <i class="bx bx-dots-vertical-rounded"></i>

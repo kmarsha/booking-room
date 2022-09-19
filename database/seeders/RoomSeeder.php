@@ -18,27 +18,32 @@ class RoomSeeder extends Seeder
             [
                 'name' => 'Meeting 1',
                 'description' => 'ruangan meeting lantai 2',
-                'capacity' => 18,
+                'capacity' => 12,
+                'photo' => 'storage/room/meeting_1.png',
             ],
             [
                 'name' => 'Meeting 2',
                 'description' => 'ruangan meeting lantai 2 view pemandangan',
-                'capacity' => 12,
+                'capacity' => 8,
+                'photo' => 'storage/room/meeting_2.jpg',
             ],
             [
                 'name' => 'Meeting 3',
                 'description' => 'ruangan meeting santai lantai 3',
                 'capacity' => 25,
+                'photo' => 'storage/room/meeting_3.jpg',
             ],
             [
                 'name' => 'Meeting 4',
                 'description' => 'ruangan meeting lantai 1',
                 'capacity' => 8,
+                'photo' => 'storage/room/meeting_4.png',
             ],
             [
                 'name' => 'Meeting 5',
                 'description' => 'ruangan meeting santai lantai 4',
-                'capacity' => 25,
+                'capacity' => 8,
+                'photo' => 'storage/room/meeting_5.jpg',
             ],
         ];
 
