@@ -81,11 +81,13 @@
     <li class="menu-item">
         <li class="menu-item {{ ($page == 'room') ? 'active' : '' }}">
           <a href="{{ route('room.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-building"></i>
             <div data-i18n="Account">Ruangan</div>
           </a>
         </li>
         <li class="menu-item {{ ($page == 'user') ? 'active' : '' }}">
-          <a href="pages-account-settings-notifications.html" class="menu-link">
+          <a href="{{ route('user.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-user-circle"></i>
             <div data-i18n="Notifications">User</div>
           </a>
         </li>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'List Ruangan', 'page' => 'room'])
+@extends('layouts.app', ['title' => 'Manajemen User', 'page' => 'user'])
 
 @section('breadcrumb')
 <nav aria-label="breadcrumb">
@@ -6,34 +6,35 @@
     <li class="breadcrumb-item">
       <a href="javascript:void(0);">Pages</a>
     </li>
-    <li class="breadcrumb-item active">List Ruangan</li>
+    <li class="breadcrumb-item active">Manajemen User</li>
   </ol>
 </nav>
 @endsection
 
+
 @section('content')
   <div class="card">
-    <h5 class="card-header">List Ruangan <a href="{{ route('room.create') }}"><button class="btn rounded-pill btn-primary float-end mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg> Ruangan</button></a></h5>
-    <div id="load-room"></div>
+    <h5 class="card-header">List User <a href="{{ route('user.create') }}"><button class="btn rounded-pill btn-primary float-end mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg> User</button></a></h5>
+    <div id="load-user"></div>
   </div>
 @endsection
 
 @push('js')
   <script>
     $(function() {
-      getRoom()
+      getUser()
     })
 
-    async function getRoom() {
+    async function getUser() {
       try {
-        var sectionData = $('#load-room')
-        url = "{{ route('room.index') }}"
+        var sectionData = $('#load-user')
+        url = "{{ route('user.index') }}"
         const response = await HitData(url, null, "GET");
         sectionData.html(response)
         
-        $("#room-table").DataTable({
+        $("#user-table").DataTable({
           processing: true,
-          order: [2, 'asc'],
+          order: [1, 'asc'],
           'pageLength': 4,
           "responsive": true, "lengthChange": false, "autoWidth": false,
         });
@@ -42,12 +43,12 @@
       }
     }
 
-    async function deleteRoom(id) {
+    async function deleteUser(id) {
       try {
-        var url = `/room/${id}`
+        var url = `/user/${id}`
         const response = await HitData(url, null, "DELETE");
         notif('success', response.message)
-        getRoom()
+        getUser()
       } catch (error) {
         console.log(error)
         notif('error', error)

@@ -1,7 +1,17 @@
 @extends('layouts.app', ['title' => 'Dashboard', 'page' => 'home'])
 
 @section('breadcrumb')
-  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages /</span> Dashboard</h4>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="javascript:void(0);">Pages</a>
+    </li>
+    {{-- <li class="breadcrumb-item">
+      <a href="javascript:void(0);">Dashboard</a>
+    </li> --}}
+    <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+</nav>
 @endsection
 
 @section('content')

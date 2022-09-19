@@ -12,7 +12,17 @@
 @extends('layouts.app', ['title' => $title, 'page' => 'room'])
 
 @section('breadcrumb')
-  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages / <a href="{{ route('room.index') }}">List Ruangan</a> / </span> {{ $title }}</h4>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="javascript:void(0);">Pages</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="{{ route('room.index') }}">List Ruangan</a>
+    </li>
+    <li class="breadcrumb-item active">{{ $title }}</li>
+  </ol>
+</nav>
 @endsection
 
 @section('content')
@@ -46,6 +56,7 @@
               placeholder="Meeting ..."
               aria-label="Meeting ..."
               aria-describedby="basic-icon-default-roomname2"
+              required
             />
           </div>
         </div>
@@ -62,6 +73,7 @@
               placeholder="Ruangan ..."
               aria-label="Ruangan ..."
               aria-describedby="basic-icon-default-description2"
+              required
             >{{ $description }}</textarea>
           </div>
         </div>
@@ -78,7 +90,9 @@
               value="{{ $capacity }}" 
               min="2" 
               id="capacity-input" 
-              aria-describedby="capacity-input2">
+              aria-describedby="capacity-input2"
+              required
+              />
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Send</button>
