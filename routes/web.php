@@ -42,4 +42,21 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('booking', BookingListController::class);
     Route::get('my-booking-list', [RouteController::class, 'viewBookList'])->name('book-list');
+
+    Route::get('cancel-booking/{id}', function($id) {
+        try {
+            $bookingList = App\Models\BookingList::find($id);
+            $bookingList->update([
+                'status' => 'canceled'
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Berhasil Membatalkan Penyewaan'
+            ]);
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
+    })->name('cancel.booking');
 });

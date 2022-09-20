@@ -38,7 +38,35 @@
               </small> 
             </td>
             <td class="text-wrap">{{ $list->need }}</td>
-            <td><span class="badge bg-label-primary me-1">{{ $list->status }}</span></td>
+            <td>
+              @switch($list->status)
+                @case('pending')
+                  @php $badge = 'info' @endphp
+                  @break
+                @case('approved')
+                  @php $badge = 'success' @endphp
+                  @break
+                @case('rejected')
+                  @php $badge = 'danger' @endphp
+                  @break
+                @case('used')
+                  @php $badge = 'warning' @endphp
+                  @break
+                @case('canceled')
+                  @php $badge = 'dark' @endphp
+                  @break
+                @case('done')
+                  @php $badge = 'primary' @endphp
+                  @break
+                @case('expired')
+                  @php $badge = 'secondary' @endphp
+                  @break
+              
+                @default
+                  
+              @endswitch
+              <span class="badge bg-label-{{ $badge }} me-1">{{ $list->status }}</span>
+            </td>
             @admin 
             <td class="text-end">
               <div class="dropdown">
@@ -65,6 +93,12 @@
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('booking.edit', $list->id) }}"
                       ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                    >
+                  </div>
+                @elseif($list->status == 'approved')
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" onclick="openModal('{{ $list->id }}', '{{ $list->room_id }}', 'batalkan')"
+                      ><i class="bx bx-edit-alt me-1"></i> Batalkan</a
                     >
                   </div>
                 @endif

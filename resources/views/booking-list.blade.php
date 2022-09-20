@@ -77,10 +77,22 @@
 
     function openModal(id, room, action) {
       $('#title-modal').text('Konfirmasi Penyewaan')
-      var text = (action === 'setuju' ? 'setujui' : 'tolak')
+      if (action == 'setuju') {
+        var text = 'setujui'
+      } else if (action == 'tolak') {
+        var text = action
+      } else if (action == 'batalkan') {
+        var text = action
+      }
       $('#text-modal').html(`Yakin <em>${text}</em> Penyewaan?`)
       $('#btn-modal').text(`${action}`)
-      var onclick = (action === 'setuju' ? `approving(${id}, ${room})` : `rejecting(${id})`)
+      if (action == 'setuju') {
+        var onclick = `approving(${id}, ${room})`
+      } else if (action == 'tolak') {
+        var onclick = `rejecting(${id})`
+      } else if (action == 'batalkan') {
+        var onclick = `canceling(${id})`
+      }
       $('#btn-modal').attr('onclick', onclick)
       $('#modalAction').modal('toggle')
     }
@@ -104,6 +116,19 @@
     async function rejecting(id) {
       try {
         var url = `/admin/booking/rejected/${id}`
+        const response = await HitData(url, null, "GET");
+        notif('success', response.message)
+        $('#modalAction').modal('toggle')
+        getList()
+      } catch (error) {
+        console.log(error)
+        notif('error', error)
+      }
+    }
+
+    async function canceling(id) {
+      try {
+        var url = `/cancel-booking/${id}`
         const response = await HitData(url, null, "GET");
         notif('success', response.message)
         $('#modalAction').modal('toggle')

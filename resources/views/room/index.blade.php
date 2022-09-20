@@ -48,7 +48,7 @@
 
     async function deleteRoom(id) {
       try {
-        var url = `/room/${id}`
+        var url = `/admin/room/${id}`
         const response = await HitData(url, null, "DELETE");
         notif('success', response.message)
         getRoom()
