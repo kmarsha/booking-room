@@ -50,6 +50,11 @@ Route::middleware('auth')->group(function () {
                 'status' => 'canceled'
             ]);
 
+            $room = App\Models\Room::find($bookingList->room_id);
+            $room->update([
+                'status' => 'tersedia'
+            ]);
+
             return response()->json([
                 'success' => true,
                 'message' => 'Berhasil Membatalkan Penyewaan'
