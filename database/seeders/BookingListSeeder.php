@@ -54,9 +54,9 @@ class BookingListSeeder extends Seeder
         BookingList::insert($datas);
 
         Room::find('4')->update([
-            'status' => 'dipesan',,
-                'created_at' => now(),
-                'updated_at' => now(),
+            'status' => 'dipesan',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
