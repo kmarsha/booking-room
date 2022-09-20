@@ -72,6 +72,6 @@ class LoginController extends Controller
      */
     protected function loggedOut(Request $request)
     {
-        return redirect(route('login'))->with('success', 'Berhasil Log Out');
+        return redirect(url('/'))->with('success', 'Berhasil Log Out');
     }
 }
