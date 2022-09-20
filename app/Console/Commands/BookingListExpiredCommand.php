@@ -20,7 +20,7 @@ class BookingListExpiredCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Set Booking to expired based on time';
+    protected $description = 'Set Status Booking to expired based on time';
 
     /**
      * Create a new command instance.
@@ -51,7 +51,7 @@ class BookingListExpiredCommand extends Command
             ]);
         }
 
-        $this->info('Set booking to expired done.');
+        $this->info('Set Status booking to expired done.');
 
         return 0;
     }

@@ -19,7 +19,7 @@ class BookingListStartCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Set Booking to Used based on time';
+    protected $description = 'Set Status Booking to Used based on time';
 
     /**
      * Create a new command instance.
@@ -50,7 +50,7 @@ class BookingListStartCommand extends Command
             ]);
         }
 
-        $this->info('Set booking to used done.');
+        $this->info('Set Status booking to used done.');
 
         return 0;
     }

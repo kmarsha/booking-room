@@ -19,7 +19,7 @@ class BookingListFinishCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Set Booking to Done based on time';
+    protected $description = 'Set Status Booking to Done based on time';
 
     /**
      * Create a new command instance.
@@ -50,7 +50,7 @@ class BookingListFinishCommand extends Command
             ]);
         }
 
-        $this->info('Set booking to done finished.');
+        $this->info('Set Status booking to done finished.');
 
         return 0;
     }
