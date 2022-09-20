@@ -13,7 +13,11 @@
 
 @section('content')
   <div class="card">
-    <h5 class="card-header">List Ruangan <a href="{{ route('room.create') }}"><button class="btn rounded-pill btn-primary float-end mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg> Ruangan</button></a></h5>
+    <h5 class="card-header">List Ruangan 
+    @admin
+      <a href="{{ route('room.create') }}"><button class="btn rounded-pill btn-primary float-end mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 26 26" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg> Ruangan</button></a> 
+    @endadmin
+    </h5>
     <div id="load-room"></div>
   </div>
 @endsection
@@ -27,7 +31,7 @@
     async function getRoom() {
       try {
         var sectionData = $('#load-room')
-        url = "{{ route('room.index') }}"
+        url = "{{ route('view-room') }}"
         const response = await HitData(url, null, "GET");
         sectionData.html(response)
         

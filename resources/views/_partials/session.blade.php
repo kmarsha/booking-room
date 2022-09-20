@@ -30,4 +30,9 @@
       var msg = "{{ session('warning') }}"
       notif('warning', msg)
     @endif
+
+    @if (Session::has('info'))
+      var msg = "{{ session('info') }}"
+      notif('info', msg)
+    @endif
 </script>

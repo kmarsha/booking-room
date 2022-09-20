@@ -8,7 +8,7 @@
         <th>Deskripsi</th>
         <th>Kapasitas</th>
         <th>Status</th>
-        <th>Actions</th>
+        @admin <th>Actions</th> @endadmin
       </tr>
     </thead>
     <tbody class="table-border-bottom-0">
@@ -26,6 +26,7 @@
             <td class="text-wrap">{{ $room->description }}</td>
             <td> {{ $room->capacity }} </td>
             <td><span class="badge bg-label-primary me-1">{{ $room->status }}</span></td>
+            @admin
             <td class="text-end">
               <div class="dropdown">
                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -39,6 +40,7 @@
                 </div>
               </div>
             </td>
+            @endadmin
           </tr>
       @endforeach
     </tbody>

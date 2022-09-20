@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
                 'pass' => 'pass',
                 'description' => 'Manajer',
                 'role' => 'admin',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 2,
@@ -34,6 +36,8 @@ class UserSeeder extends Seeder
                 'pass' => 'pass',
                 'description' => null,
                 'role' => 'admin',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => '3',
@@ -44,6 +48,8 @@ class UserSeeder extends Seeder
                 'pass' => 'pass',
                 'description' => null,
                 'role' => 'user',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 4,
@@ -54,6 +60,8 @@ class UserSeeder extends Seeder
                 'pass' => 'pass',
                 'description' => null,
                 'role' => 'user',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id' => 5,
@@ -64,6 +72,8 @@ class UserSeeder extends Seeder
                 'pass' => 'pass',
                 'description' => null,
                 'role' => 'user',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ];
 

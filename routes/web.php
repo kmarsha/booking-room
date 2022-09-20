@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminBookingListController;
+use App\Http\Controllers\BookingListController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RouteController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -25,7 +28,18 @@ Route::view('dashboard', 'dashboard')->name('dashboard');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function () {
+    Route::middleware('isAdmin')->prefix('admin')->group(function() {
+        Route::resource('room', RoomController::class);
+        Route::resource('user', UserController::class);
 
-Route::resource('room', RoomController::class);
-Route::resource('user', UserController::class);
+        Route::get('booking-list', [RouteController::class, 'viewBookList'])->name('admin-booking-list');
+        Route::get('booking/approved/{id}', [AdminBookingListController::class, 'approve'])->name('approve-booking');
+        Route::get('booking/rejected/{id}', [AdminBookingListController::class, 'reject'])->name('reject-booking');
+    });
+
+    Route::get('room', [RouteController::class, 'viewRoom'])->name('view-room');
+
+    Route::resource('booking', BookingListController::class);
+    Route::get('my-booking-list', [RouteController::class, 'viewBookList'])->name('book-list');
+});

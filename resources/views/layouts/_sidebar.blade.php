@@ -75,6 +75,7 @@
       </a>
     </li>
 
+    @admin
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Data Master</span>
     </li>
@@ -92,5 +93,42 @@
           </a>
         </li>
     </li>
+
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Pemesanan Ruangan</span>
+    </li>
+    <li class="menu-item">
+        <li class="menu-item {{ ($page == 'book') ? 'active' : '' }}">
+          <a href="{{ route('admin-booking-list') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-list-ul"></i>
+            <div data-i18n="Account">Booking List </div>
+          </a>
+        </li>
+    </li>
+    @else
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Ruangan</span>
+    </li>
+    <li class="menu-item">
+        <li class="menu-item {{ ($page == 'room') ? 'active' : '' }}">
+          <a href="{{ route('view-room') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-building"></i>
+            <div data-i18n="Account">List Ruangan</div>
+          </a>
+        </li>
+    </li>
+
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Pemesanan Ruangan</span>
+    </li>
+    <li class="menu-item">
+        <li class="menu-item {{ ($page == 'book') ? 'active' : '' }}">
+          <a href="{{ route('book-list') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-list-ul"></i>
+            <div data-i18n="Account">My Booking List </div>
+          </a>
+        </li>
+    </li>
+    @endadmin
   </ul>
 </aside>

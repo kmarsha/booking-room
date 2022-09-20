@@ -45,7 +45,7 @@
 
     async function deleteUser(id) {
       try {
-        var url = `/user/${id}`
+        var url = `/admin/user/${id}`
         const response = await HitData(url, null, "DELETE");
         notif('success', response.message)
         getUser()
