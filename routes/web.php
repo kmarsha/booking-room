@@ -24,11 +24,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('dashboard', 'dashboard')->name('dashboard');
 
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [RouteController::class, 'viewDashboard'])->name('dashboard');
+
     Route::middleware('isAdmin')->prefix('admin')->group(function() {
         Route::resource('room', RoomController::class);
         Route::resource('user', UserController::class);
