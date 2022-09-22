@@ -122,12 +122,19 @@
       <span class="menu-header-text">Pemesanan Ruangan</span>
     </li>
     <li class="menu-item">
-        <li class="menu-item {{ ($page == 'book') ? 'active' : '' }}">
-          <a href="{{ route('book-list') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-list-ul"></i>
-            <div data-i18n="Account">My Booking List </div>
-          </a>
-        </li>
+      <li class="menu-item {{ ($page == 'book') ? 'active' : '' }}">
+        <a href="{{ route('book-list') }}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-list-ul"></i>
+          <div data-i18n="Account">My Booking List </div>
+        </a>
+      </li>
+    <li class="menu-item">
+      <li class="menu-item {{ ($page == 'reschedule') ? 'active' : '' }}">
+        <a href="{{ route('reschedule-view') }}" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-list-ul"></i>
+          <div data-i18n="Account">Reschedule List </div>
+        </a>
+      </li>
     </li>
     @endadmin
   </ul>

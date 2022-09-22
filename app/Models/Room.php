@@ -12,11 +12,21 @@ class Room extends Model
     protected $table = 'rooms';
 
     protected $fillable = [
-        'name', 'description', 'capacity', 'photo', 'status',
+        'name', 'description', 'capacity', 'photo',
     ];
 
     public function bookList()
     {
         return $this->hasMany(BookingList::class);
+    }
+
+    public function roomBook()
+    {
+        return $this->hasMany(RoomBooking::class);
+    }
+
+    public function rescheduled()
+    {
+        return $this->hasMany(Reschedule::class);
     }
 }

@@ -21,7 +21,7 @@ class CreateBookingListsTable extends Migration
             $table->time('start');
             $table->time('end');
             $table->string('need');
-            $table->enum('status', ['pending', 'approved', 'rejected', 'used', 'canceled', 'done', 'expired'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'rejected', 'used', 'canceled', 'done', 'expired', 'rescheduled'])->default('pending');
             $table->softDeletes();
             $table->timestamps();
         });

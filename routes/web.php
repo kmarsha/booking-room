@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminBookingListController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BookingListController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -43,26 +44,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('booking', BookingListController::class);
     Route::get('my-booking-list', [RouteController::class, 'viewBookList'])->name('book-list');
+    Route::get('reschedule', [BookingController::class, 'viewReschedule'])->name('reschedule-view');
+    Route::get('rescheduling/{id}', [BookingController::class, 'rescheduleBooking'])->name('reschedule');
 
-    Route::get('cancel-booking/{id}', function($id) {
-        try {
-            $bookingList = App\Models\BookingList::find($id);
-            $bookingList->update([
-                'status' => 'canceled'
-            ]);
-
-            $room = App\Models\Room::find($bookingList->room_id);
-            $room->update([
-                'status' => 'tersedia'
-            ]);
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Berhasil Membatalkan Penyewaan'
-            ]);
-        } catch (\Throwable $th) {
-            //throw $th;
-            return $th->getMessage();
-        }
-    })->name('cancel.booking');
+    Route::get('cancel-booking/{id}', [BookingController::class, 'cancelBooking'])->name('cancel.booking');
 });

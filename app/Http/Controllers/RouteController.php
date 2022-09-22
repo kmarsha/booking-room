@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\BookingList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Reschedule;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,7 @@ class RouteController extends Controller
                 'canceled' => BookingList::whereStatus('canceled')->get()->count(),
                 'done' => BookingList::whereStatus('done')->get()->count(),
                 'expired' => BookingList::whereStatus('expired')->get()->count(),
+                'rescheduled' => BookingList::whereStatus('rescheduled')->get()->count(),
                 'total' => BookingList::all()->count(),
                 'room' => Room::all()->count(),
                 'user' => User::all()->count(),
@@ -31,6 +33,7 @@ class RouteController extends Controller
                 'today' => BookingList::where('user_id', Auth::user()->id)->where('date', '=', now()->format('Y-m-d'))->get()->count(),
                 'myList' => BookingList::where('user_id', Auth::user()->id)->get()->count(),
                 'today_lists' => BookingList::where('user_id', Auth::user()->id)->whereStatus('approved')->where('date', '=', now()->format('Y-m-d'))->get(),
+                'rescheduled' => Reschedule::where('user_id', Auth::user()->id)->where('reschedule', null)->get()->count(),
             ];
         }
         return view('dashboard', $data);
@@ -56,17 +59,17 @@ class RouteController extends Controller
     {
         try {
             if (Auth::user()->role == 'admin') {
-                $lists = BookingList::all();
+                $lists = BookingList::orderBy('date', 'desc')->get();
             } elseif (Auth::user()->role == 'user') {
                 $user_id = Auth::user()->id;
-                $lists = BookingList::where('user_id', $user_id)->get();
+                $lists = BookingList::where('user_id', $user_id)->orderBy('date', 'desc')->get();
             }
             
             if (request()->ajax()) {
-                return view('load-booking', compact('lists'));
+                return view('booking.load-booking', compact('lists'));
             }
 
-            return view('booking-list', compact('lists'));
+            return view('booking.booking-list', compact('lists'));
         } catch (\Throwable $th) {
             //throw $th;
             return $th->getMessage();

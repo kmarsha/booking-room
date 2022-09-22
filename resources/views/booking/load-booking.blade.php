@@ -61,6 +61,9 @@
                 @case('expired')
                   @php $badge = 'secondary' @endphp
                   @break
+                @case('rescheduled')
+                  @php $badge = 'success' @endphp
+                  @break
               
                 @default
                   

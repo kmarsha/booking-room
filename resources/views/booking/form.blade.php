@@ -1,8 +1,8 @@
 @php
   $room_id = isset($bookingList) ? $bookingList->room_id : null;
-  $date = isset($bookingList) ? $bookingList->date : null;
-  $start = isset($bookingList) ? $bookingList->start : null;
-  $end = isset($bookingList) ? $bookingList->end : null;
+  $date = isset($bookingList) ? $bookingList->date->format('Y-m-d') : null;
+  $start = isset($bookingList) ? $bookingList->start->format('Y-m-d') : null;
+  $end = isset($bookingList) ? $bookingList->end->format('Y-m-d') : null;
   $need = isset($bookingList) ? $bookingList->need : null;
  
   $url = isset($bookingList) ? "/booking/$bookingList->id" : '/booking';

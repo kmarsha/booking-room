@@ -50,6 +50,10 @@
               <span class="fw-semibold d-block mb-1 text-capitalize">Expired</span>
               <h3 class="card-title mb-3">{{ $expired }}</h3>
             </div>
+            <div class="col-4 text-center">
+              <span class="fw-semibold d-block mb-1 text-capitalize">Ubah Jadwal</span>
+              <h3 class="card-title mb-3">{{ $rescheduled }}</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -137,6 +141,25 @@
               <h6>Total Semua Bookingan</h6>
               <h3 class="card-title">
                 {{ $myList }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <div class="m-5">
+              <i class='bx bx-comment' style="font-size: 2.5rem"></i>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h6>Notifikasi Reschedule</h6>
+              <h3 class="card-title">
+                {{ $rescheduled }}
               </h3>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Reschedule;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(RoomSeeder::class);
         $this->call(BookingListSeeder::class);
+        $this->call(RoomBookingSeeder::class);
+        $this->call(RescheduleSeeder::class);
     }
 }

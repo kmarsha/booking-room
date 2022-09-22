@@ -5,21 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BookingList extends Model
+class RoomBooking extends Model
 {
     use HasFactory;
 
-    protected $table = 'booking_lists';
+    protected $table = 'room_bookings';
 
     protected $fillable = [
-        'user_id', 
-        'room_id',
-        'date',
-        'start', 'end',
-        'need',
-        'status',
+        'room_id', 'user_id', 'booking_id', 'date', 'start', 'end',
     ];
-
+    
     protected $dates = ['date', 'start', 'end'];
 
     public function user()
@@ -32,13 +27,8 @@ class BookingList extends Model
         return $this->belongsTo(Room::class);
     }
 
-    public function roomBooking()
+    public function bookingList()
     {
-        return $this->hasMany(RoomBooking::class, 'booking_id', 'id');
-    }
-
-    public function reschedule()
-    {
-        return $this->hasMany(Reschedule::class, 'booking_id', 'id');
+        return $this->belongsTo(BookingList::class, 'booking_id', 'id');
     }
 }

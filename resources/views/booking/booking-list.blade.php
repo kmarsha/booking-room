@@ -89,7 +89,7 @@
       if (action == 'setuju') {
         var onclick = `approving(${id}, ${room})`
       } else if (action == 'tolak') {
-        var onclick = `rejecting(${id})`
+        var onclick = `modalReject(${id}, ${room})`
       } else if (action == 'batalkan') {
         var onclick = `canceling(${id})`
       }
@@ -113,10 +113,26 @@
       }
     }
 
-    async function rejecting(id) {
+    function modalReject(id, room) {
+      $('#title-modal').text('Penawaran Ubah Jadwal Penyewaan')
+      $('#text-modal').html(`<div class="mb-3">
+                        <label for="msg-input" class="form-label">Catatan Rescheduled</label>
+                        <textarea class="form-control" name="message" id="msg-input" placeholder="Pesan..." required></textarea>
+                      </div>`)
+      $('#btn-modal').text('Kirim')
+      $('#btn-modal').attr('onclick', `rejecting(${id}, ${room})`)
+      $('#modalAction').modal('show')
+    }
+
+    async function rejecting(id, room) {
       try {
         var url = `/admin/booking/rejected/${id}`
-        const response = await HitData(url, null, "GET");
+        var msg = $('#msg-input').val()
+        data = {
+          message: msg,
+          room_id: room,
+        }
+        const response = await HitData(url, data, "GET");
         notif('success', response.message)
         $('#modalAction').modal('toggle')
         getList()

@@ -19,7 +19,6 @@ class CreateRoomsTable extends Migration
             $table->string('description');
             $table->integer('capacity');
             $table->string('photo')->nullable();
-            $table->enum('status', ['dipesan', 'tersedia'])->default('tersedia');
             $table->timestamps();
         });
     }

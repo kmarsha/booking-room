@@ -26,7 +26,7 @@ class BookingListController extends Controller
      */
     public function create()
     {
-        $rooms = Room::where('status', 'tersedia')->get();
+        $rooms = Room::all();
 
         return view('booking.form', compact('rooms'));
     }
