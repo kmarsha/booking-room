@@ -7,7 +7,6 @@
         <th>Nama</th>
         <th>Deskripsi</th>
         <th>Kapasitas</th>
-        <th>Status</th>
         @admin <th>Actions</th> @endadmin
       </tr>
     </thead>
@@ -25,7 +24,6 @@
             </td>
             <td class="text-wrap">{{ $room->description }}</td>
             <td> {{ $room->capacity }} </td>
-            <td><span class="badge bg-label-primary me-1">{{ $room->status }}</span></td>
             @admin
             <td class="text-end">
               <div class="dropdown">
