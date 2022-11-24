@@ -4,11 +4,39 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="javascript:void(0);">Pages</a>
+      <a href="#">Pages</a>
     </li>
     <li class="breadcrumb-item active">List Ruangan</li>
   </ol>
 </nav>
+@endsection
+
+@section('modal')
+    <!-- Small Modal -->
+    <div class="modal fade" id="modalAction" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-capitalize" id="title-modal">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="text-modal"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-primary text-capitalize" id="btn-modal">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection
 
 @section('content')
@@ -46,16 +74,17 @@
       }
     }
 
-    async function deleteRoom(id) {
-      try {
-        var url = `/admin/room/${id}`
-        const response = await HitData(url, null, "DELETE");
-        notif('success', response.message)
-        getRoom()
-      } catch (error) {
-        console.log(error)
-        notif('error', error)
-      }
+    
+    function openModal(room_id, room_name) {
+      $('#title-modal').text('Delete Modal')
+      $('#text-modal').html(`<div class="text-capitalize">
+                              <br>
+                              <div class="mt-2">
+                                <p>Data ruangan <em>tidak bisa</em> dihapus. Edit ruangan dan pilih Status 'tidak bisa dipakai' agar ruangan tidak dipesan.</p>
+                              </div>
+                              </div>`)
+      $('#btn-modal').remove()
+      $('#modalAction').modal('show')
     }
   </script>
 @endpush

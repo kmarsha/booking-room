@@ -4,7 +4,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="javascript:void(0);">Pages</a>
+      <a href="#">Pages</a>
     </li>
     <li class="breadcrumb-item active">Reschedule List</li>
   </ol>

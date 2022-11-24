@@ -7,6 +7,7 @@
         <th>Nama</th>
         <th>Deskripsi</th>
         <th>Kapasitas</th>
+        <th>Status</th>
         @admin <th>Actions</th> @endadmin
       </tr>
     </thead>
@@ -24,6 +25,12 @@
             </td>
             <td class="text-wrap">{{ $room->description }}</td>
             <td> {{ $room->capacity }} </td>
+            <td> 
+              @if ($room->status == 'able') <span class="badge bg-label-info me-1">Useable</span> 
+              @elseif ($room->status == 'disable') <span class="badge bg-label-secondary me-1">Disable</span> 
+              @endif 
+            </td>
+            
             @admin
             <td class="text-end">
               <div class="dropdown">
@@ -34,7 +41,7 @@
                   <a class="dropdown-item" href="{{ route('room.edit', $room->id) }}"
                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                   >
-                  <a class="dropdown-item" href="#" onclick="return (confirm('Yakin Hapus Data Ruangan {{ $room->name }}')) ? deleteRoom({{ $room->id }}) : '' "> <i class="bx bx-trash me-1"></i> Delete</a>
+                  <a class="dropdown-item" href="#" onclick="openModal('{{ $room->id }}', '{{ $room->name }}')"> <i class="bx bx-trash me-1"></i> Delete</a>
                 </div>
               </div>
             </td>

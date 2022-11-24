@@ -49,15 +49,16 @@ class RoomController extends Controller
         $fileName = str_replace(' ', '_', strtolower($request->name)) . '.' . $request->file('photo')->extension();
         $request->file('photo')->storeAs('public/room', $fileName);
 
-        $photo = 'storage/room/'.$fileName;
+        $photo = 'storage/room/' . $fileName;
 
         Room::create([
             'name' => $request->name,
             'description' => $request->description,
             'capacity' => $request->capacity,
             'photo' => $photo,
+            'status' => $request->status,
         ]);
-        
+
         return redirect(route('room.index'))->with('success', 'Berhasil Menyimpan Data Ruangan');
     }
 
@@ -96,13 +97,14 @@ class RoomController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'capacity' => $request->capacity,
+            'status' => $request->status,
         ]);
 
         if ($request->file('photo')) {
             $fileName = str_replace(' ', '_', strtolower($request->name)) . '.' . $request->file('photo')->extension();
             $request->file('photo')->storeAs('public/room', $fileName);
 
-            $photo = 'storage/room/'.$fileName;
+            $photo = 'storage/room/' . $fileName;
 
             $room->update([
                 'photo' => $photo,
@@ -133,7 +135,8 @@ class RoomController extends Controller
 
             return redirect(route('room.index'))->with('success', $msg);
         } catch (\Throwable $th) {
-            throw $th->getMessage();
+            // throw $th->getMessage();
+            return $th->getMessage();
         }
     }
 }

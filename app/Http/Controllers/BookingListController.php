@@ -26,7 +26,7 @@ class BookingListController extends Controller
      */
     public function create()
     {
-        $rooms = Room::all();
+        $rooms = Room::where('status', 'able')->get();
 
         return view('booking.form', compact('rooms'));
     }
@@ -107,6 +107,5 @@ class BookingListController extends Controller
      */
     public function destroy(BookingList $bookingList)
     {
-        
     }
 }

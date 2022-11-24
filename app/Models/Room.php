@@ -12,7 +12,7 @@ class Room extends Model
     protected $table = 'rooms';
 
     protected $fillable = [
-        'name', 'description', 'capacity', 'photo',
+        'name', 'description', 'capacity', 'photo', 'status',
     ];
 
     public function bookList()

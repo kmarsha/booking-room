@@ -3,8 +3,9 @@
   $roomname = isset($room) ? $room->name : null;
   $description = isset($room) ? $room->description : null;
   $capacity = isset($room) ? $room->capacity : null;
+  $status = isset($room) ? $room->status : null;
 
-  $url = isset($room) ? "/room/$room->id" : '/room';
+  $url = isset($room) ? "/admin/room/$room->id" : '/room';
   $method = isset($room) ? 'PUT' : 'POST';
   $title = isset($room) ? 'Ubah Data Ruangan' : 'Tambah Data Ruangan';
 @endphp
@@ -15,7 +16,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="javascript:void(0);">Pages</a>
+      <a href="#">Pages</a>
     </li>
     <li class="breadcrumb-item">
       <a href="{{ route('room.index') }}">List Ruangan</a>
@@ -93,6 +94,17 @@
               aria-describedby="capacity-input2"
               required
               />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="status-input" class="form-label">Status</label>
+          <div class="input-group input-group-merge">
+            <span id="basic-icon-default-room2" class="input-group-text">Pilih Status Ruangan</span>
+            <select class="form-select" name="status" id="basic-icon-default-room">
+              <option selected="">Choose...</option>
+              <option value="able" @if($status == 'able') selected @endif>Bisa dipakai</option>
+              <option value="disable" @if($status == 'disable') selected @endif>Tidak bisa dipakai / dalam perbaikan</option>
+            </select>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Send</button>
