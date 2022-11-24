@@ -74,7 +74,6 @@
       }
     }
 
-    
     function openModal(room_id, room_name) {
       $('#title-modal').text('Delete Modal')
       $('#text-modal').html(`<div class="text-capitalize">

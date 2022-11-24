@@ -6,7 +6,7 @@
   $role = isset($user) ? $user->role : null;
   $description = isset($user) ? $user->description : null;
 
-  $url = isset($user) ? "/user/$user->id" : '/user';
+  $url = isset($user) ? "/admin/user/$user->id" : '/admin/user';
   $method = isset($user) ? 'PUT' : 'POST';
   $title = isset($user) ? 'Ubah Data User' : 'Tambah Data User';
 @endphp

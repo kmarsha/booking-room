@@ -11,6 +11,33 @@
 </nav>
 @endsection
 
+@section('modal')
+    <!-- Small Modal -->
+    <div class="modal fade" id="modalAction" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-capitalize" id="title-modal">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="text-modal"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-primary text-capitalize" id="btn-modal">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+@endsection
 
 @section('content')
   <div class="card">
@@ -43,11 +70,30 @@
       }
     }
 
+    function openModal(user_id, name, username) {
+      $('#title-modal').text('Delete Modal')
+      $('#text-modal').html(`<div class="text-capitalize">
+                              <br>
+                              <div class="mt-2">
+                                Yakin Hapus Data User ${name} <span class="text-lowercase">[${username}]</span>?
+                              </div>
+                              </div>`)
+      $('#btn-modal').text('Ya')
+      $('#btn-modal').attr('onclick', `deleteUser(${user_id})`)
+      $('#modalAction').modal('show')
+    }
+
     async function deleteUser(id) {
       try {
         var url = `/admin/user/${id}`
         const response = await HitData(url, null, "DELETE");
-        notif('success', response.message)
+        if (response.message) {
+          notif('success', response.message)
+        } else if (response.includes('Integrity constraint violation')) {
+          notif('error', "Tidak bisa hapus User \n User sudah pernah memesan ruangan")
+        } 
+        console.log(response)
+        $('#modalAction').modal('toggle')
         getUser()
       } catch (error) {
         console.log(error)
