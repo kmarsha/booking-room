@@ -5,6 +5,7 @@
         <th>No</th>
         <th class="text-center">Ruangan</th>
         <th>Waktu</th>
+        <th>Pesan</th>
         <th>Ubah Jadwal</th>
         <th>Status</th>
         <th>Action</th>
@@ -26,6 +27,9 @@
                 {{ $reschedule->bookingList->start->format('H:m A') }} - 
                 {{ $reschedule->bookingList->end->format('H:m A') }}
               </div> 
+            </td>
+            <td class="text-wrap">
+              {{ $reschedule->message }}
             </td>
             <td class="text-center">
               @switch($reschedule->reschedule)
