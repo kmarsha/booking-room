@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page1.png" alt="Project Welcome Page">
+ <img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page1.png" alt="Project Welcome Page">
 </p>
 <h3 align="center">Booking Room</h3>
 
@@ -86,20 +86,20 @@ Login with Role User (may you prefer to register)
 - Password = pass
 
 ## 🌸 Preview <a name="preview"></a>
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page1.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page2.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page3.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page4.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page5.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page6.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page7.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page8.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page9.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page10.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page11.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page12.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page13.png">
-<img src="https://github.com/kmarsha/booking-room/tree/main/public/img/pages/page14.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page1.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page2.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page3.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page4.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page5.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page6.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page7.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page8.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page9.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page10.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page11.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page12.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page13.png">
+<img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page14.png">
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
