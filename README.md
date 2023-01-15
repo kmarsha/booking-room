@@ -85,6 +85,16 @@ Login with Role User (may you prefer to register)
 - Email/Username = marshak@gmail.com / macca
 - Password = pass
 
+There's 8 types of booking status
+- pending = the first status after request booking
+- approved = when admin approving your request
+- rejected = when admin rejecting your request and you refuse to reschedule
+- used = when you used the room
+- canceled = when you canceling the room you have been book
+- done = when the room already used
+- expired = the pending status not noticed by admin and it has been past the booking date
+- rescheduled = when you accept to reschedule your booking
+
 ## 🌸 Preview <a name="preview"></a>
 <img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page1.png">
 <img src="https://github.com/kmarsha/booking-room/blob/main/public/img/pages/page2.png">
