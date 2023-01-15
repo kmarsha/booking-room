@@ -25,7 +25,7 @@
 - [Technology Stack](#tech_stack)
 - [Authors](#authors)
 
-## 🧐 User Role <a name = "user_role"></a>
+## 🤓 User Role <a name = "user_role"></a>
 
 Completed with 2 Users
 - Admin (managed Users and room schedule)
